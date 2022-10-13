@@ -1,0 +1,17 @@
+Package: NCf
+Version: 0.0.1
+Date: 2022-10-13
+Title: NCf
+Description: Fast and simple way to create a NetCDF file only with variable declarations
+Authors@R: c(
+    person(given = "Louis",
+           family = "Héraut",
+           role = c("cre", "aut"),
+           email = "louis.heraut@inrae.fr")
+    )
+Encoding: UTF-8
+License: GPL-3 + file LICENSE
+Imports:
+    ncdf4,
+    stringr
+RoxygenNote: 7.1.2
