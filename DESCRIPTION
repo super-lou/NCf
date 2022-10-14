@@ -2,7 +2,7 @@ Package: NCf
 Version: 0.0.1
 Date: 2022-10-13
 Title: NCf
-Description: Fast and simple way to create a NetCDF file only with variable declarations
+Description: Efficient and simple way to create a NetCDF file only with R variable declarations
 Authors@R: c(
     person(given = "Louis",
            family = "Héraut",
