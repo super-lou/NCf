@@ -66,7 +66,8 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' @examples
 #' generate_NCf()
 #' @export
-generate_NCf = function (out_dir="", environment_name="NCf") {
+generate_NCf = function (out_dir="", environment_name="NCf",
+                         overwrite=TRUE) {
 
     NCf = get(environment_name, envir=.GlobalEnv)
     lsNCf = ls(envir=NCf)
@@ -82,7 +83,14 @@ generate_NCf = function (out_dir="", environment_name="NCf") {
     title_parts = title_parts[title_parts != ""]
     filename = paste0(title_parts, collapse="_")
     filename = paste0(filename, ".nc")
+    filepath = file.path(out_dir, filename)
 
+### 1.3. Overwite old file ___________________________________________
+    if (overwrite) {        
+        if (file.exists(filepath)) {
+            file.remove(filepath)
+        }
+    }
     
 ## 2. INFORMATION GATHERING __________________________________________
 ### 2.1. Getting variable names and dimensions _______________________
@@ -196,8 +204,8 @@ generate_NCf = function (out_dir="", environment_name="NCf") {
     }
 
 
-## 5. CREATION OF THE NETCDF FILE ____________________________________
-    NCdata = ncdf4::nc_create(file.path(out_dir, filename),
+## 5. CREATION OF THE NETCDF FILE ____________________________________    
+    NCdata = ncdf4::nc_create(filepath,
                               vars=vars, force_v4=TRUE)
 
 
