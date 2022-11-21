@@ -144,6 +144,7 @@ generate_NCf = function (out_dir="", environment_name="NCf",
         }
     }
 
+    
 ## 4. VARIABLES CREATION _____________________________________________
     vars = list()
     nVar = length(var_names) 
@@ -236,11 +237,17 @@ generate_NCf = function (out_dir="", environment_name="NCf",
                     if (name == "global") {
                         name = 0
                     }
-                    ncdf4::ncatt_put(NCdata,
-                                     name, gsub("^.*[.]", "",
-                                                obj_att_names[j]),
-                                     get(obj_att_fullnames[j],
-                                         envir=NCf))
+
+                    attname = gsub("^.*[.]", "", obj_att_names[j])
+                    attval = get(obj_att_fullnames[j], envir=NCf)
+                    
+                    if (attname %in% c("_FillValue", "missing_value")) {
+                        ncdf4::ncvar_change_missval(NCdata,
+                                                    name,
+                                                    attval)
+                    } else {
+                        ncdf4::ncatt_put(NCdata, name, attname, attval)
+                    }
                 }
             }
         }
@@ -252,3 +259,20 @@ generate_NCf = function (out_dir="", environment_name="NCf",
     ncdf4::nc_close(NCdata)
     rm (list=ls(envir=NCf), envir=NCf)
 }
+
+
+# dev_path_NCf = file.path(gsub("project.*", "", getwd()),
+#                          "project", "NCf_project",
+#                          'NCf', 'R')
+# if (file.exists(dev_path_NCf)) {
+#     print('Loading NCf from local directory')
+#     list_path_NCf = list.files(dev_path_NCf,
+#                                  pattern="*.R$",
+#                                  full.names=TRUE)
+#     for (path_NCf in list_path_NCf) {
+#         source(path_NCf, encoding='UTF-8')
+#     }
+# } else {
+#     print('Loading NCf from package')
+#     library(NCf)
+# }
