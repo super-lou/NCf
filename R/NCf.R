@@ -237,7 +237,7 @@ generate_NCf = function (out_dir="", environment_name="NCf",
                 if (exists(var_value, envir=NCf)) {
 
                     if (verbose) {
-                        print("value")
+                        print("  value")
                     }
                     
                     value = get(var_value, envir=NCf)
