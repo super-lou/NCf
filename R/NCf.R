@@ -67,7 +67,7 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' generate_NCf()
 #' @export
 generate_NCf = function (out_dir="", environment_name="NCf",
-                         overwrite=TRUE) {
+                         overwrite=TRUE, verbose=FALSE) {
 
     NCf = get(environment_name, envir=.GlobalEnv)
     lsNCf = ls(envir=NCf)
@@ -119,6 +119,11 @@ generate_NCf = function (out_dir="", environment_name="NCf",
 ### 3.2. Finding dimension variables _________________________________
             obj_dim = paste0(name, ".dimension")
             if (!exists(obj_dim, envir=NCf)) {
+                
+                if (verbose) {
+                    print(paste0("Creation of dimension ", name))
+                }
+                
                 dim_name = paste0(name, "_dim")
                 dim_value = get(paste0(name, ".value"), envir=NCf)
 
@@ -150,7 +155,11 @@ generate_NCf = function (out_dir="", environment_name="NCf",
     nVar = length(var_names) 
     for (i in 1:nVar) {
         name = var_names[i]
+        
         if (name != "global") {
+            if (verbose) {
+                print(paste0("Creation of variable ", name))
+            }
             var_name = paste0(name, "_var")
 
 ### 4.1. Obtaining accuracy __________________________________________
@@ -216,6 +225,10 @@ generate_NCf = function (out_dir="", environment_name="NCf",
     for (i in 1:nObj) {
         name = obj_names[i]
 
+        if (verbose) {
+            print(paste0("Adding information for ", name, " :"))
+        }
+        
         if (name == "global" | name %in% actual_dim_names | name %in% var_names) {
 ### 6.1. Adding values _______________________________________________
             obj_dim = paste0(name, ".dimension")
@@ -240,6 +253,10 @@ generate_NCf = function (out_dir="", environment_name="NCf",
 
                     attname = gsub("^.*[.]", "", obj_att_names[j])
                     attval = get(obj_att_fullnames[j], envir=NCf)
+
+                    if (verbose) {
+                        print(paste0("  ", attname, " done"))
+                    }
                     
                     if (attname %in% c("_FillValue", "missing_value")) {
                         ncdf4::ncvar_change_missval(NCdata,
@@ -255,6 +272,9 @@ generate_NCf = function (out_dir="", environment_name="NCf",
 
 
 ## 7. CLOSING AND SAVING OF THE NETCDF FILE __________________________
+    if (verbose) {
+        print("Writing NetCDF")
+    }
     print(NCdata)
     ncdf4::nc_close(NCdata)
     rm (list=ls(envir=NCf), envir=NCf)
