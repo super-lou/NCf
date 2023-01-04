@@ -235,6 +235,11 @@ generate_NCf = function (out_dir="", environment_name="NCf",
             if (exists(obj_dim, envir=NCf)) {
                 var_value = paste0(name, ".value")
                 if (exists(var_value, envir=NCf)) {
+
+                    if (verbose) {
+                        print("value")
+                    }
+                    
                     value = get(var_value, envir=NCf)
                     ncdf4::ncvar_put(NCdata, name, value)
                 }
@@ -255,7 +260,7 @@ generate_NCf = function (out_dir="", environment_name="NCf",
                     attval = get(obj_att_fullnames[j], envir=NCf)
 
                     if (verbose) {
-                        print(paste0("  ", attname, " done"))
+                        print(paste0("  ", attname))
                     }
                     
                     if (attname %in% c("_FillValue", "missing_value")) {
