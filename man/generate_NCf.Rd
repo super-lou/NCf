@@ -4,7 +4,12 @@
 \alias{generate_NCf}
 \title{generate_NCf}
 \usage{
-generate_NCf(out_dir = "", environment_name = "NCf")
+generate_NCf(
+  out_dir = "",
+  environment_name = "NCf",
+  overwrite = TRUE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{out_dir}{Name of the output directory for the NetCDF file}
