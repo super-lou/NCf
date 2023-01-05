@@ -1,6 +1,7 @@
-# \\\
-# Copyright 2022 Louis Héraut (louis.heraut@inrae.fr)*1
-#
+# Copyright 2022-2023 Louis Héraut (louis.heraut@inrae.fr)*1,
+#                     Éric Sauquet (eric.sauquet@inrae.fr)*1,
+#                     Jean-Philippe Vidal (jean-philippe.vidal@inrae.fr)*1
+#                     
 # *1   INRAE, France
 #
 # This file is part of NCf R package.
@@ -10,15 +11,14 @@
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
 #
-# NCf R package is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# NCf R package is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
 # along with NCf R package.
 # If not, see <https://www.gnu.org/licenses/>.
-# ///
 
 
 #  _  _   ___   __ 
