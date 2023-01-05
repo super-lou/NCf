@@ -66,8 +66,11 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' @examples
 #' generate_NCf()
 #' @export
-generate_NCf = function (out_dir="", environment_name="NCf",
-                         overwrite=TRUE, verbose=FALSE) {
+generate_NCf = function (out_dir="",
+                         environment_name="NCf",
+                         overwrite=TRUE,
+                         chunksizes_list=c("time"=365),
+                         verbose=FALSE) {
 
     NCf = get(environment_name, envir=.GlobalEnv)
     lsNCf = ls(envir=NCf)
@@ -196,25 +199,34 @@ generate_NCf = function (out_dir="", environment_name="NCf",
                     dimStr = c(dimStr[id_is_nchar],
                                dimStr[-id_is_nchar])
                 }
-
                 
-                dimStr = paste0(dimStr, "_dim")
-                dim = lapply(dimStr, get, envir=NCf)
+                dim = lapply(paste0(dimStr, "_dim"), get, envir=NCf)
+                
             } else {
                 dim = list()
             }
-
+            
+            chunksizes = rep(1, length(dim))
+            print(dimStr)
+            for (i in 1:length(chunksizes_list)) {
+                chunksizes[dimStr == names(chunksizes_list)[i]] =
+                    chunksizes_list[i]
+            }
+            # chunksizes[dimStr == "time"] = 365
+            print(chunksizes)
+            
 ### 4.3. Creation ____________________________________________________
             assign(var_name,
                    ncdf4::ncvar_def(name, units="",
-                                    prec=prec, dim=dim),
+                                    prec=prec, dim=dim,
+                                    chunksizes=chunksizes),
                    envir=NCf)
             vars = append(vars, list(get(var_name, envir=NCf)))
         }
     }
 
 
-## 5. CREATION OF THE NETCDF FILE ____________________________________    
+## 5. CREATION OF THE NETCDF FILE ____________________________________  
     NCdata = ncdf4::nc_create(filepath,
                               vars=vars, force_v4=TRUE)
 
@@ -230,6 +242,7 @@ generate_NCf = function (out_dir="", environment_name="NCf",
         }
         
         if (name == "global" | name %in% actual_dim_names | name %in% var_names) {
+            
 ### 6.1. Adding values _______________________________________________
             obj_dim = paste0(name, ".dimension")
             if (exists(obj_dim, envir=NCf)) {

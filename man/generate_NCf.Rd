@@ -8,6 +8,7 @@ generate_NCf(
   out_dir = "",
   environment_name = "NCf",
   overwrite = TRUE,
+  chunksizes_list = c(time = 365),
   verbose = FALSE
 )
 }
