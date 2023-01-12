@@ -1,6 +1,6 @@
 Package: NCf
-Version: 0.0.1
-Date: 2022-10-13
+Version: 0.0.2
+Date: 2023-01-12
 Title: NCf
 Description: Efficient and simple way to create a NetCDF file only with R variable declarations
 Authors@R: c(
