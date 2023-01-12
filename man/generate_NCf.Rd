@@ -9,6 +9,7 @@ generate_NCf(
   environment_name = "NCf",
   overwrite = TRUE,
   chunksizes_list = c(time = 365),
+  unlim_list = c("time"),
   verbose = FALSE
 )
 }

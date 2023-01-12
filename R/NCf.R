@@ -70,6 +70,7 @@ generate_NCf = function (out_dir="",
                          environment_name="NCf",
                          overwrite=TRUE,
                          chunksizes_list=c("time"=365),
+                         unlim_list=c("time"),
                          verbose=FALSE) {
 
     NCf = get(environment_name, envir=.GlobalEnv)
@@ -142,6 +143,7 @@ generate_NCf = function (out_dir="",
                 assign(dim_name,
                        ncdf4::ncdim_def(name, units="",
                                         vals=dim_value,
+                                        unlim=name %in% unlim_list,
                                         create_dimvar=create_dimvar),
                        envir=NCf)
                 dim_names = c(dim_names, name)
@@ -212,8 +214,6 @@ generate_NCf = function (out_dir="",
                 chunksizes[dimStr == names(chunksizes_list)[i]] =
                     chunksizes_list[i]
             }
-            # chunksizes[dimStr == "time"] = 365
-            print(chunksizes)
             
 ### 4.3. Creation ____________________________________________________
             assign(var_name,
@@ -297,20 +297,3 @@ generate_NCf = function (out_dir="",
     ncdf4::nc_close(NCdata)
     rm (list=ls(envir=NCf), envir=NCf)
 }
-
-
-# dev_path_NCf = file.path(gsub("project.*", "", getwd()),
-#                          "project", "NCf_project",
-#                          'NCf', 'R')
-# if (file.exists(dev_path_NCf)) {
-#     print('Loading NCf from local directory')
-#     list_path_NCf = list.files(dev_path_NCf,
-#                                  pattern="*.R$",
-#                                  full.names=TRUE)
-#     for (path_NCf in list_path_NCf) {
-#         source(path_NCf, encoding='UTF-8')
-#     }
-# } else {
-#     print('Loading NCf from package')
-#     library(NCf)
-# }

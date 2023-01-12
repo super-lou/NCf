@@ -7,3 +7,6 @@ check:
 
 install:
 	R -e 'remotes::install_github("super-lou/NCf")'
+
+documentation:
+	python3 generate_documentation.py
