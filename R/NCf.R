@@ -209,10 +209,13 @@ generate_NCf = function (out_dir="",
             }
             
             chunksizes = rep(1, length(dim))
-            print(dimStr)
             for (i in 1:length(chunksizes_list)) {
                 chunksizes[dimStr == names(chunksizes_list)[i]] =
                     chunksizes_list[i]
+            }
+
+            if (verbose) {
+                print(paste0("Chunk size : ", paste0(chunksizes, collapse=", ")))
             }
             
 ### 4.3. Creation ____________________________________________________
