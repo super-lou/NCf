@@ -1,4 +1,4 @@
-# NCf [<img src="man/figures/MKstat.png" align="right" width=160 height=160 alt=""/>](https://makaho.sk8.inrae.fr/)
+# NCf [<img src="figures/paper_alt_hex.png" align="right" width=160 height=160 alt=""/>](https://makaho.sk8.inrae.fr/)
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html)
