@@ -7,15 +7,19 @@
 initialise_NCf(environment_name = "NCf")
 }
 \arguments{
-\item{environment_name}{Name of the R environment used to store
-NCf variables}
+\item{environment_name}{*character, default="NCf"* Name of the R environment used to store NCf variables.}
 }
 \value{
-Nothing
+An environnement variable named `environment_name`.
 }
 \description{
-Initialises the NCf way of NetCDF creation
+Initialises the NCf way of NetCDF creation. Formally an environment variable is created and it will store all the different data and info that will later be gather as a NetCDF file.
 }
 \examples{
+```
+# by default
 initialise_NCf()
+# or with a personal name
+initialise_NCf(environment_name="NCf2")
+```
 }
