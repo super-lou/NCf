@@ -32,7 +32,7 @@ NetCDF file in the `out_dir` directory.
 \description{
 It creates a NetCDF file according to the defined variables in the environemment variable previously created with the [initialise_NCf()] function. Each variable name needs to follow a precise pattern in order to be understandable by this function.
 }
-\details{
+\note{
 # General Principle
 ---
 The idea is to start with an empty environement variable created by [initialise_NCf()] and to store variable in this environnement variable. For example, the default environemment variable is named `NCf` so the variable `human` that take the character `"George"` can be add to `NCf` with `NCf$human = "George"`. In fact this variable will be un-used in the final NetCDF file because it does not indicate to which NetCDF variable or dimension the `human` info refers to. 
@@ -68,12 +68,6 @@ A NetCDF attribute defined as `NCf$title.00.att = "attribute"` specifies with th
 In that way, NetCDF file creation is more focused on the info and formatting than on the raw code of NetCDF creation. It is easy to manage multiple NetCDF file at the same time with different environment variables and to have separate scripts that contain NCf R variables definitions between R code line of data processing.
 }
 \examples{
-```
-## 0. LIBRARY ________________________________________________________
-if (!require (remotes)) install.packages("remotes")
-if (!require (NCf)) remotes::install_github("super-lou/NCf")
-
-
 ## 1. INITIALISATION _________________________________________________
 initialise_NCf()
 
@@ -145,7 +139,6 @@ NCf$surface_model.03.missing_value = NaN
 
 ## 6. SAVING _________________________________________________________
 generate_NCf(out_dir="./")
-```
 }
 \seealso{
 [GitHub developpement page](https://github.com/super-lou/NCf) and [an advanced use of the NCf package](https://github.com/super-lou/Ex2D_toolbox/tree/main/help/DRIAS_export/DRIAS_export_1D)

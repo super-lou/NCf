@@ -16,10 +16,8 @@ An environnement variable named `environment_name`.
 Initialises the NCf way of NetCDF creation. Formally an environment variable is created and it will store all the different data and info that will later be gather as a NetCDF file.
 }
 \examples{
-```
 # by default
 initialise_NCf()
 # or with a personal name
 initialise_NCf(environment_name="NCf2")
-```
 }

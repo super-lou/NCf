@@ -34,16 +34,17 @@
 #' @param environment_name *character, default="NCf"* Name of the R environment used to store NCf variables.
 #' @return An environnement variable named `environment_name`.
 #' @examples
-#' ```
 #' # by default
 #' initialise_NCf()
 #' # or with a personal name
 #' initialise_NCf(environment_name="NCf2")
-#' ```
 #' @export
 initialise_NCf = function (environment_name="NCf") {
-    # Creation of the environment 
-    assign(environment_name, new.env(), envir=.GlobalEnv)
+    # Creation of the environment
+    envir = as.environment(1)
+    assign(environment_name, new.env(), envir=envir)
+    
+    # assign(environment_name, new.env(), envir=.GlobalEnv)
 }
 
 
@@ -64,7 +65,7 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' @title generate_NCf
 #' @description
 #' It creates a NetCDF file according to the defined variables in the environemment variable previously created with the [initialise_NCf()] function. Each variable name needs to follow a precise pattern in order to be understandable by this function.
-#' @details
+#' @note
 #' # General Principle
 #' ---
 #' The idea is to start with an empty environement variable created by [initialise_NCf()] and to store variable in this environnement variable. For example, the default environemment variable is named `NCf` so the variable `human` that take the character `"George"` can be add to `NCf` with `NCf$human = "George"`. In fact this variable will be un-used in the final NetCDF file because it does not indicate to which NetCDF variable or dimension the `human` info refers to. 
@@ -107,12 +108,6 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' @return NetCDF file in the `out_dir` directory.
 #' @seealso [GitHub developpement page](https://github.com/super-lou/NCf) and [an advanced use of the NCf package](https://github.com/super-lou/Ex2D_toolbox/tree/main/help/DRIAS_export/DRIAS_export_1D)
 #' @examples
-#' ```
-#' ## 0. LIBRARY ________________________________________________________
-#' if (!require (remotes)) install.packages("remotes")
-#' if (!require (NCf)) remotes::install_github("super-lou/NCf")
-#'
-#' 
 #' ## 1. INITIALISATION _________________________________________________
 #' initialise_NCf()
 #'
@@ -185,7 +180,6 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' 
 #' ## 6. SAVING _________________________________________________________
 #' generate_NCf(out_dir="./")
-#' ```
 #' @export
 generate_NCf = function (out_dir="",
                          environment_name="NCf",
