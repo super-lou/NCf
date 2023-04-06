@@ -1,6 +1,7 @@
 # NCf [<img src="man/paper_alt_hex.png" align="right" width=160 height=160 alt=""/>](https://makaho.sk8.inrae.fr/)
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html)
 ![](https://img.shields.io/github/last-commit/super-lou/NCf)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 

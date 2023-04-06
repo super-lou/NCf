@@ -41,10 +41,7 @@
 #' @export
 initialise_NCf = function (environment_name="NCf") {
     # Creation of the environment
-    envir = as.environment(1)
-    assign(environment_name, new.env(), envir=envir)
-    
-    # assign(environment_name, new.env(), envir=.GlobalEnv)
+    assign(environment_name, new.env(), envir=as.environment(1))
 }
 
 
