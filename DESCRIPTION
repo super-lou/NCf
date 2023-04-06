@@ -1,17 +1,15 @@
 Package: NCf
-Version: 0.1.0
-Date: 2023-03-27
 Title: NCf
+Version: 0.1.0
+Date: 2023-04-06
+Author: Louis Héraut
+Maintainer: Louis Héraut <louis.heraut@inrae.fr>
 Description: Efficient and simple way to create a NetCDF file only with R variable declarations.
-Authors@R: c(
-    person(given = "Louis",
-           family = "Héraut",
-           role = c("cre", "aut"),
-           email = "louis.heraut@inrae.fr")
-    )
-Encoding: UTF-8
 License: GPL-3 + file LICENSE
+URL: https://github.com/r-lib/desc
+BugReports: https://github.com/super-lou/NCf/issues
 Imports:
     ncdf4,
     stringr
+Encoding: UTF-8
 RoxygenNote: 7.2.3
