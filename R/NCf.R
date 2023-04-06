@@ -38,6 +38,7 @@
 #' initialise_NCf()
 #' # or with a personal name
 #' initialise_NCf(environment_name="NCf2")
+#' @md
 #' @export
 initialise_NCf = function (environment_name="NCf") {
     # Creation of the environment
@@ -177,6 +178,7 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' 
 #' ## 6. SAVING _________________________________________________________
 #' generate_NCf(out_dir="./")
+#' @md
 #' @export
 generate_NCf = function (out_dir="",
                          environment_name="NCf",
