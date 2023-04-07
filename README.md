@@ -32,22 +32,22 @@ Thus, adding a variable (or dimension) and modifying these attributes in the fin
 
 For a better understanding of how the code works it is important to specify some rules for editing R NCf variables.
 
-* **NetCDF dimension ---**
+* **NetCDF dimension    **
 Defining a NetCDF dimension is done by creating an R variable `NCf$x.name = "a"`. Here `a` is the name displayed in the NetCDF of the dimension and `x` is the internal R code identification of this variable. It is also necessary to define an R variable `NCf$x.value = Value` where this time `Value` is for example a data vector which defines the values associated with the dimension identified in R by `x` and named in the NetCDF `a`. For the sake of clarity, it is often best to define a dimension named in the NetCDF in the same way as its internal identification in R such as `NCf$y.name = "y"`.
 
-* **NetCDF variable ---**
+* **NetCDF variable    **
 Defining a NetCDF variable is done in the same way as for a dimension via an R variable `NCf$var.name = "b"`. However, this time it is not necessary to associate another R variable of type `NCf$var.value = Value` but an R variable of type `NCf$var.dimension = "x"`. This last one allows to make the link between the variable `b` and the dimension `x`. If the dimension entered is "", no dimension will be associated with this variable but this declaration in R is still necessary.
 
-* **Variable precision ---**
+* **Variable precision    **
 For a variable (and more rarely for a dimension), it is possible to give the "precision" or rather the type of data associated with it. To do this, you have to define an R variable `NCf$x.precision = "type"` where `"type"` is chosen among 'short', 'integer', 'float', 'double', 'char' and 'byte'. WARNING ... if a character variable (thus of type 'char') is filled in and takes as input a dimension characterizing the length of this character string, it is imperative that the associated dimension takes as value a vector of 1 to the desired length of the character string and that this same dimension presents a parameter `NCf$dim.is_nchar_dimension = TRUE` which specifies this special behavior.
 
-* **Variable attribute ---**
+* **Variable attribute    **
 Any other attribute of a NetCDF variable or dimension is defined by an R variable `NCf$var.00.att = "attribute"` where in general `"attribute"` is a string and preferably a two-digit number (in this case `00`) is used to specify its position in the NetCDF.
 
-* **Global attribute ---**
+* **Global attribute    **
 A NetCDF attribute defined as `NCf$global.00.att = "attribute"` specifies with the `global` tag that this attribute is global in the NetCDF.
 
-* **NetCDF file title ---**
+* **NetCDF file title    **
 A NetCDF attribute defined as `NCf$title.00.att = "attribute"` specifies with the `title` marker that this attribute allows the construction of the NetCDF file title by joining with `"_"` the set of non-empty supplied attributes.
 
 ### Framework
