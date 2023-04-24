@@ -184,6 +184,7 @@ generate_NCf = function (out_dir="",
                          environment_name="NCf",
                          overwrite=TRUE,
                          chunksizes_list=c("time"=365),
+                         missval=NaN,
                          unlim_list=c("time"),
                          verbose=FALSE) {
 
@@ -341,6 +342,7 @@ generate_NCf = function (out_dir="",
             assign(var_name,
                    ncdf4::ncvar_def(name, units="",
                                     prec=prec, dim=dim,
+                                    missval=missval,
                                     chunksizes=chunksizes),
                    envir=NCf)
             vars = append(vars, list(get(var_name, envir=NCf)))
