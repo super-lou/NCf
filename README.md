@@ -1,4 +1,4 @@
-# NCf [<img src="man/paper_alt_hex.png" align="right" width=160 height=160 alt=""/>](https://makaho.sk8.inrae.fr/)
+# NCf <img src="man/paper_alt_hex.png" align="right" width=160 height=160 alt=""/>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml)
