@@ -416,8 +416,9 @@ generate_NCf = function (out_dir="",
 ## 7. CLOSING AND SAVING OF THE NETCDF FILE __________________________
     if (verbose) {
         print("Writing NetCDF")
+        print(NCdata)
     }
-    print(NCdata)
+    
     ncdf4::nc_close(NCdata)
     rm (list=ls(envir=NCf), envir=NCf)
 }
