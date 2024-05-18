@@ -186,6 +186,7 @@ generate_NCf = function (out_dir="",
                          chunksizes_list=c("time"=365),
                          missval=NaN,
                          unlim_list=c("time"),
+                         return_path=FALSE,
                          verbose=FALSE) {
 
     NCf = get(environment_name, envir=.GlobalEnv)
@@ -419,6 +420,10 @@ generate_NCf = function (out_dir="",
         print(NCdata)
     }
     
-    ncdf4::nc_close(NCdata)
     rm (list=ls(envir=NCf), envir=NCf)
+    ncdf4::nc_close(NCdata)
+    
+    if (return_path) {
+        return (filepath)
+    }   
 }
