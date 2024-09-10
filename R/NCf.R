@@ -373,12 +373,11 @@ generate_NCf = function (out_dir="",
             if (exists(obj_dim, envir=NCf)) {
                 var_value = paste0(name, ".value")
                 if (exists(var_value, envir=NCf)) {
-
+                    value = get(var_value, envir=NCf)
                     if (verbose) {
                         print("  value")
+                        print(paste0("  is NA : ", any(is.na(value))))
                     }
-                    
-                    value = get(var_value, envir=NCf)
                     ncdf4::ncvar_put(NCdata, name, value)
                 }
             }
