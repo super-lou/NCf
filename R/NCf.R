@@ -180,7 +180,7 @@ extract_att_name = function (obj_name, lsNCf, notAtt="") {
 #' generate_NCf(out_dir="./")
 #' @md
 #' @export
-generate_NCf = function (out_dir="",
+generate_NCf = function (out_dir=".",
                          environment_name="NCf",
                          overwrite=TRUE,
                          chunksizes_list=c("time"=365),
