@@ -31,11 +31,11 @@
     "description": "Efficient and simple way to create a NetCDF file only with R variable declarations.\n\nUne méthode efficace et simple pour créer un fichier NetCDF uniquement avec des déclarations de variables R.",
     "keywords": [
         "netcdf",
-        "formating",
+        "data formating",
+	"data management",
         "workflow",
         "hydrological projection",
-        "climat projection",
-        "simulation"
+        "climat projection"
     ],
     "license": "https://spdx.org/licenses/AGPL-3.0-or-later",
     "name": "NCf",
