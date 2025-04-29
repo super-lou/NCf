@@ -1,9 +1,9 @@
 # NCf <img src="man/paper_alt_hex.png" align="right" width=160 height=160 alt=""/>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/super-lou/NCf/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/louis-heraut/NCf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/louis-heraut/NCf/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html)
-![](https://img.shields.io/github/last-commit/super-lou/NCf)
+![](https://img.shields.io/github/last-commit/louis-heraut/NCf)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
 <!-- badges: end -->
 
@@ -15,7 +15,7 @@ This project was carried out for National Research Institute for Agriculture, Fo
 ## Installation
 For latest development version
 ``` r
-remotes::install_github('super-lou/NCf')
+remotes::install_github('louis-heraut/NCf')
 ```
 
 
@@ -56,7 +56,7 @@ In that way, NetCDF file creation is more focused on the info and formatting tha
 
 ## FAQ
 📬 — **I would like an upgrade / I have a question / Need to reach me**  
-Feel free to [open an issue](https://github.com/super-lou/NCf/issues) ! I’m actively maintaining this project, so I’ll do my best to respond quickly.  
+Feel free to [open an issue](https://github.com/louis-heraut/NCf/issues) ! I’m actively maintaining this project, so I’ll do my best to respond quickly.  
 I’m also reachable on my institutional INRAE [email](mailto:louis.heraut@inrae.fr?subject=%5BNCf%5D) for more in-depth discussions.
 
 🛠️ — **I found a bug**  
@@ -65,9 +65,9 @@ I’m also reachable on my institutional INRAE [email](mailto:louis.heraut@inrae
 - *Best Solution* : Fix the issue and submit a pull request. This is the fastest way to get a bug fixed.
 
 🚀 — **Want to contribute ?**  
-If you don't know where to start, [open an issue](https://github.com/super-lou/NCf/issues).
+If you don't know where to start, [open an issue](https://github.com/louis-heraut/NCf/issues).
 
-If you want to try by yourself, why not start by also [opening an issue](https://github.com/super-lou/NCf/issues) to let me know you're working on something ? Then:
+If you want to try by yourself, why not start by also [opening an issue](https://github.com/louis-heraut/NCf/issues) to let me know you're working on something ? Then:
 
 - Fork this repository  
 - Clone your fork locally and make changes (or even better, create a new branch for your modifications)
